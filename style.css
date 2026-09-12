@@ -1,0 +1,176 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html, body { 
+    min-height: 100vh;
+    font-family: 'Open Sans', Helvetica, sans-serif;
+    background: linear-gradient(rgba(20, 20, 20, 0.8), rgba(20, 20, 20, 0.8)), 
+                url('https://images.unsplash.com/photo-1505506874110-6a7a6c9924cb?auto=format&fit=crop&q=80&w=1920') no-repeat center center fixed;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px 15px; 
+}
+
+#canvas {
+    background-color: #fcfcfc; 
+    border: 5px solid #c62828; 
+    padding: 50px 45px; 
+    border-radius: 12px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.6);
+    width: 100%;
+    max-width: 650px; 
+}
+
+.image-center {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.top-icon {
+    width: 100px; 
+    height: auto;
+    display: inline-block;
+}
+
+h1 {
+    text-align: center;
+    color: #c62828; 
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.subtitle {
+    text-align: center;
+    color: #555;
+    font-size: 15px;
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.vertical-form, .vertical-align-left {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+}
+
+.form-group {
+    margin-bottom: 20px; 
+    width: 100%;
+    text-align: left;
+}
+
+label {
+    display: block;
+    font-size: 15px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 8px;
+}
+
+label small {
+    color: #7f8c8d;
+    font-weight: 400;
+}
+
+input[type="text"], 
+input[type="number"], 
+select {
+    width: 100%; 
+    padding: 14px; 
+    border: 1px solid #b0bec5;
+    border-radius: 6px;
+    font-size: 15px;
+    font-family: 'Open Sans', sans-serif;
+    outline: none;
+    transition: all 0.3s ease;
+    background-color: #ffffff;
+}
+
+input:focus, select:focus {
+    border-color: #c62828;
+    box-shadow: 0 0 6px rgba(198, 40, 40, 0.3);
+}
+
+.btn-submit {
+    width: 100%;
+    padding: 16px;
+    margin-top: 30px;
+    background-color: #c62828; 
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 18px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    text-transform: uppercase;
+}
+
+.btn-submit:hover {
+    background-color: #8e0000;
+}
+
+/* --- Dynamic Results Page Specifics --- */
+.result-details {
+    width: 100%;
+    margin-bottom: 35px;
+}
+
+.patient-name {
+    font-size: 18px;
+    color: #333;
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+.risk-label {
+    font-size: 18px;
+    color: #333;
+    margin-bottom: 12px;
+}
+
+/* Base card styling */
+.risk-card {
+    padding: 25px;
+    width: 100%;
+    border-radius: 8px;
+}
+
+/* Base text styling */
+.risk-percentage {
+    font-size: 36px;
+    text-align: left;
+    font-weight: 700;
+}
+
+/* --- Dynamic Classes Applied by Flask --- */
+
+/* High Risk Styling (Red) */
+.high-risk-card {
+    background: #ffebee;
+    border-left: 6px solid #c62828;
+}
+
+.high-risk-text {
+    color: #c62828;
+}
+
+/* Low Risk Styling (Green) */
+.low-risk-card {
+    background: #e8f5e9;
+    border-left: 6px solid #2e7d32;
+}
+
+.low-risk-text {
+    color: #2e7d32;
+}

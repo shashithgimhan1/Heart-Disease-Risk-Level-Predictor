@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patient Details - Heart Risk Predictor</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div id="canvas">
+        
+        <div class="image-center">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRJW0UzUcAECatq7Fq--l1WWzQzwr4OtDS76kjTPUsvtZi5IRcp6noXVsYn&s=10" alt="Medical Heart Symbol" class="top-icon">
+        </div>
+
+        <h1>Coronary Heart Disease Risk Predictor</h1>
+        <p class="subtitle">Please enter all 15 clinical parameters whether the patient developed Coronary Heart Disease within 10 years</p>
+
+        <form action="http://127.0.0.1:5000/getresults" method="POST" class="vertical-form">
+            
+            <div class="form-group">
+                <label>Patient Name</label>
+                <input type="text" name="name" required placeholder="Full Name" />
+            </div>
+
+            <div class="form-group">
+                <label>Gender</label>
+                <select name="male" required>
+                    <option value="" disabled selected>Select Gender</option>
+                    <option value="1">Male</option>
+                    <option value="0">Female</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>Age <small>[Years]</small></label>
+                <input type="text" name="age" min="30" max="90" required placeholder="e.g. 45" />
+            </div>
+
+            <div class="form-group">
+                <label>Education Level <small>[1 to 4]</small></label>
+                <select name="education" required>
+                    <option value="" disabled selected>Select Education Level</option>
+                    <option value="1">1: Some High School</option>
+                    <option value="2">2: High School Graduate / GED</option>
+                    <option value="3">3: Some College / Vocational</option>
+                    <option value="4">4: College Degree</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>Current Smoker?</label>
+                <select name="currentSmoker" required>
+                    <option value="" disabled selected>Select</option>
+                    <option value="1">Yes</option>
+                    <option value="0">No</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>Cigarettes Per Day <small>[0 - 100]</small></label>
+                <input type="text" name="cigsPerDay" min="0" max="100" required placeholder="e.g. 10" />
+            </div>
+
+            <div class="form-group">
+                <label>Blood Pressure Medication?</label>
+                <select name="BPMeds" required>
+                    <option value="" disabled selected>Select</option>
+                    <option value="1">Yes</option>
+                    <option value="0">No</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>History of Stroke?</label>
+                <select name="prevalentStroke" required>
+                    <option value="" disabled selected>Select</option>
+                    <option value="1">Yes</option>
+                    <option value="0">No</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>Hypertensive (High BP)?</label>
+                <select name="prevalentHyp" required>
+                    <option value="" disabled selected>Select</option>
+                    <option value="1">Yes</option>
+                    <option value="0">No</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>Diabetes?</label>
+                <select name="diabetes" required>
+                    <option value="" disabled selected>Select</option>
+                    <option value="1">Yes</option>
+                    <option value="0">No</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>Total Cholesterol <small>[mg/dL]</small></label>
+                <input type="text" step="any" name="totChol" required placeholder="e.g. 234" />
+            </div>
+
+            <div class="form-group">
+                <label>Systolic Blood Pressure (sysBP) <small>[mm Hg]</small></label>
+                <input type="text" step="any" name="sysBP" required placeholder="e.g. 120" />
+            </div>
+
+            <div class="form-group">
+                <label>Diastolic Blood Pressure (diaBP) <small>[mm Hg]</small></label>
+                <input type="text" step="any" name="diaBP" required placeholder="e.g. 80" />
+            </div>
+
+            <div class="form-group">
+                <label>BMI (Body Mass Index)</label>
+                <input type="text" step="any" name="BMI" required placeholder="e.g. 25.0" />
+            </div>
+
+            <div class="form-group">
+                <label>Heart Rate <small>[BPM]</small></label>
+                <input type="text" name="heartRate" required placeholder="e.g. 75" />
+            </div>
+
+            <div class="form-group">
+                <label>Glucose Level <small>[mg/dL]</small></label>
+                <input type="text" step="any" name="glucose" required placeholder="e.g. 80" />
+            </div>
+
+            <input type="submit" class="btn-submit" value="Predict Risk"/>
+        </form>
+    </div>
+</body>
+</html>

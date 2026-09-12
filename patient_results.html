@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prediction Results - Framingham Model</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div id="canvas">
+        
+        <div class="image-center">
+            <img src="https://cdn-icons-png.flaticon.com/512/2966/2966327.png" alt="Medical Heart Symbol" class="top-icon">
+        </div>
+
+        <h1>Prediction Results</h1>
+        
+        <div class="result-details vertical-align-left">
+            <p class="patient-name"><strong>Patient Name:</strong> {{results.name}}</p>
+            <p class="risk-label"><strong>Prediction Outcome:</strong></p>
+            
+            {% if results.prediction|int == 1 %}
+                <div class="risk-card high-risk-card">
+                    <h2 class="risk-percentage high-risk-text">HIGH RISK</h2>
+                    <p style="margin-top: 10px; color: #c62828; font-weight: 600;">A high risk of developing Coronary Heart Disease within 10 years.</p>
+                </div>
+            {% else %}
+                <div class="risk-card low-risk-card">
+                    <h2 class="risk-percentage low-risk-text">LOW RISK</h2>
+                    <p style="margin-top: 10px; color: #2e7d32; font-weight: 600;">A low risk of developing Coronary Heart Disease within 10 years.</p>
+                </div>
+            {% endif %}
+
+        </div>
+
+        <a href="/" style="text-decoration: none;">
+            <button class="btn-submit">Check Another Patient</button>
+        </a>
+    </div>
+</body>
+</html>
